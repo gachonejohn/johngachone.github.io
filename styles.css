@@ -15,7 +15,7 @@ body{
 #header{
     width: 100%;
     height: 100vh;
-    background-image: url(images/Black Simple Dark Graphic Design Portfolio Website UI Prototype(4).png);
+    background-image: url(images/braceback.png);
     background-size: cover;
     background-position: center;
     
@@ -343,7 +343,7 @@ nav .fa-solid{
 /*-------css for small screens-----*/
 @media only screen and (max-width: 600px){
    #header{
-    background-image: url(images/Black\ Simple\ Dark\ Graphic\ Design\ Portfolio\ Website\ UI\ Prototype\(2\).png);
+    background-image: url(images/smallScreen.png);
    } 
    .header-text{
     margin-top: 100%;
