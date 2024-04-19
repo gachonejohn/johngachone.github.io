@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Profile</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/2014cce171.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container2">
+    <h1>Welcome! Let's create your profile</h1>
+    <p>Let others get to know you better! You can do these later</p>
+    <div class="avatar-section">
+      <h2>Add an avatar</h2>
+      <div class="avatar-container2">
+        <img id="avatar-preview" src="images/aa.png" alt="Avatar Preview">
+        <button id="choose-image">Choose Image</button>
+        <p>Or choose one of our defaults</p>
+      </div>
+    </div>
+    <div class="location-section">
+      <h2>Add your location</h2>
+      <input type="text" id="location-input" placeholder="Enter a location">
+    </div>
+    <button id="next-btn" onclick="openNextPage()">Next</button>
+  </div>
+<script>
+  const avatarPreview = document.getElementById('avatar-preview');
+const chooseImageBtn = document.getElementById('choose-image');
+const locationInput = document.getElementById('location-input');
+const nextBtn = document.getElementById('next-btn');
+
+chooseImageBtn.addEventListener('click', () => {
+  const fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.accept = 'image/*';
+  fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      avatarPreview.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+  fileInput.click();
+});
+
+locationInput.addEventListener('input', () => {
+  const location = locationInput.value.trim();
+  if (location) {
+    nextBtn.classList.add('active'); // Add 'active' class to the Next button
+  } else {
+    nextBtn.classList.remove('active'); // Remove 'active' class if location is empty
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  const location = locationInput.value.trim();
+  if (location) {
+    // Perform further actions with the entered location
+    console.log(`Location: ${location}`);
+  } else {
+    alert('Please enter a location');
+  }
+});
+function openNextPage() {
+        window.location.href = 'page3.html'; 
+    }
+</script>
+
+</body>
+</html>

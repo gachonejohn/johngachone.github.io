@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="body1">
+     
+        <div class="left-align">
+          
+          <img src="images/projectimage1.svg" alt="Illustration">
+          
+        </div>
+        <div class="right-align">
+          <h2>Sign up to Dribbble</h2>
+          <p class="error"></p>
+          <form id="myForm" action="page2.html">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name">
+            </div>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" required >
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" value="account@refero.design" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="6+ characters" required>
+            </div>
+            <div class="form-group">
+              <input type="checkbox" id="terms" required>
+              <label for="terms">Creating an account means you're okay with our <a href="#">Terms of<br> Service, Privacy Policy,</a> and our default <a href="#">Notification<br> Settings</a>.</label>
+            </div>
+            <button type="submit" >Create Account</button>
+          </form>
+          <p>This site is protected by reCAPTCHA and the Google<br> <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.</p>
+        </div>
+      </div>
+      <div>
+        <p class="signIn">Already a member?<a href="#"> Sign in</a></p>
+      </div>
+      <script>
+        document.getElementById("myForm").addEventListener("submit"),function(event) {
+          event.preventDefault();
+          window.location.href=this.action;
+        };
+
+
+        
+          const form = document.querySelector('form');
+          const usernameInput = document.querySelector('#username');
+          const passwordInput = document.querySelector('#password');
+          const errorMessage = document.querySelector('.error');
+
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  if (username === 'John') {
+    errorMessage.textContent = 'Username has already been taken';
+  } else if (password.length < 6) {
+    errorMessage.textContent = 'Password must be at least 6 characters';
+  } else {
+    // Perform further validation or submit the form
+    console.log('Form submitted successfully');
+    form.reset();
+    errorMessage.textContent = 'Username has already been taken';
+  }
+});
+
+
+      </script>
+
+</body>
+</html>

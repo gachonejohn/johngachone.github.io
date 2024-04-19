@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dribbble</title>
+   <link rel="stylesheet" href="styles.css">
+   <style>
+    /* Remove default checkbox styles */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Style the checkbox when checked */
+input[type="checkbox"]:checked {
+  background-color: #ff69b4; /* Pink color */
+  border-color: #ff69b4;
+}
+
+/* Add tick inside the checkbox when checked */
+input[type="checkbox"]:checked::after {
+  content: "\2714"; /* Unicode character for tick */
+  font-size: 16px;
+  color: #fff; /* White color */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Style the checkbox label */
+.checkbox-label {
+  margin-left: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+   </style>
+</head>
+<body class="body3">
+    <header>
+        <nav>
+            <div class="logo">dribbble</div>
+            
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>What brings you to Dribbble?</h1>
+            <p>Select the options that best describe you. Don't worry, you can explore other options later.</p>
+            <div class="options">
+                <div class="option">
+                    <div class="option-icon">
+                        <img class="image" src="images/find job.jpg" alt="" />
+
+                    </div>
+                    <h3>I'm a designer looking to share my work</h3>
+                    <label for="myCheckbox">
+                    <input  type="checkbox" id="myCheckbox" name="myCheckbox" >
+                    </label>
+
+                </div>
+                <div class="option">
+                    <div class="option-icon">
+                       <img class="image" src="images/hire.jpg" alt="">
+                    </div>
+                    <h3>I'm looking to hire a <br>designer</h3>
+                    <input type="checkbox" id="myCheckbox" name="myCheckbox" >
+                    <label  for="myCheckbox"></label>
+                </div>
+                <div class="option">
+                    <div class="option-icon">
+                        <img class="image" src="images/inspiration.jpg" alt="">
+                    </div>
+                    <h3>I'm looking for design inspiration</h3>
+                    <label  for="myCheckbox">
+                    <input type="checkbox" id="myCheckbox" name="myCheckbox" >
+                    </label>
+                    
+                </div>
+            </div>
+            <p class="multiple">Anything else? You can select multiple</p>
+            <button class="finish" onclick="openSecondPage()">Finish</button>
+        </section>
+    </main>
+    <footer>
+        <p>With over 7 million shots from a vast community of designers, Dribbble is the leading source for design inspiration.</p>
+    </footer>
+    <script>
+        function openSecondPage() {
+            window.location.href = 'page4.html'; 
+        }
+    </script>
+    <script>
+        const options = document.querySelectorAll('.option input[type="checkbox"]');
+
+options.forEach(option => {
+    option.addEventListener('change', () => {
+        if (option.checked) {
+            options.forEach(otherOption => {
+                if (otherOption !== option) {
+                    otherOption.checked = false;
+                    otherOption.parentElement.classList.remove('selected');
+                }
+            });
+            option.parentElement.classList.add('selected');
+        } else {
+            option.parentElement.classList.remove('selected');
+        }
+    });
+});
+    </script>
+</body>
+</html>
